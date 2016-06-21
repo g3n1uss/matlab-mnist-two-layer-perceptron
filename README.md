@@ -1,6 +1,7 @@
 # Recognizing Handwritten Digits using a Two-layer Perceptron
 
-The purpose of the code located in this repo is to train a pretty simple neural network (two-layer perceptron) to recognize the handwritten numbers. The pology of the network is shown on the following picture ![Topology](Tow-layer-Perceptron.png).
+Recognizing the handwritten numbers is one of the standard problems that can be easily solved with neural networks.
+The purpose of the code located in this repo is to produce a pretty simple neural network (two-layer perceptron) to recognize the handwritten numbers. As a dataset we use the [MNIST](http://yann.lecun.com/exdb/mnist/). The topology of the network is shown on the following picture. ![Topology](Tow-layer-Perceptron.png)
 
 ## MNIST Dataset
 
