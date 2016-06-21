@@ -1,6 +1,8 @@
-function [hiddenWeights, outputWeights, error] = trainStochasticSquaredErrorTwoLayerPerceptron(activationFunction, dActivationFunction, numberOfHiddenUnits, inputValues, targetValues, epochs, batchSize, learningRate)
-% trainStochasticSquaredErrorTwoLayerPerceptron Creates a two-layer perceptron
-% and trains it on the MNIST dataset.
+function [hiddenWeights, outputWeights, ...
+    error] = trainTwoLayerPerceptron(activationFunction, dActivationFunction,...
+    numberOfHiddenUnits, inputValues, targetValues, epochs, batchSize, learningRate)
+% trainTwoLayerPerceptron Creates a two-layer perceptron and trains it on 
+% the MNIST dataset.
 %
 % INPUT:
 % activationFunction             : Activation function used in both layers.
@@ -36,10 +38,15 @@ function [hiddenWeights, outputWeights, error] = trainStochasticSquaredErrorTwoL
     n = zeros(batchSize);
     
     figure; hold on;
+    
+    % IT SEEMS LIKE FOR EVERY EPOCH WE CHOOSE DATA RANDOMLY, CHANGE?
 
     for t = 1: epochs
+        % Within each epoch choose 100 batches randomly
         for k = 1: batchSize
-            % Select which input vector to train on.
+            % Randomly select which input vector to train on.
+            % It might select the same vector several times, does it
+            % matter? REWRITE?
             n(k) = floor(rand(1)*trainingSetSize + 1);
             
             % Propagate the input vector through the network.
@@ -64,11 +71,20 @@ function [hiddenWeights, outputWeights, error] = trainStochasticSquaredErrorTwoL
         for k = 1: batchSize
             inputVector = inputValues(:, n(k));
             targetVector = targetValues(:, n(k));
-            
-            error = error + norm(activationFunction(outputWeights*activationFunction(hiddenWeights*inputVector)) - targetVector, 2);
+            % Prediction. The following vector is real-valued, but we need
+            % to convert it into the binary output. 1 indicates the number
+            pred=activationFunction(outputWeights*activationFunction(hiddenWeights*inputVector));
+            % Convert to the binary vector
+            [~,posMax]=max(pred);
+            predInt=zeros(outputDimensions,1);
+            predInt(posMax)=1;         
+            %error = error + norm(pred - targetVector, 2);
+            % Calculate error
+            error = error + sum(abs(predInt - targetVector))/2;
         end;
-        error = error/batchSize;
-        
+        % Normalize error, the output is percentage
+        error = error/batchSize*100;
+        % Add labels
         plot(t, error,'*');
     end;
 end
