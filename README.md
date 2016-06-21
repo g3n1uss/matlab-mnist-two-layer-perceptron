@@ -1,6 +1,6 @@
 # Recognizing Handwritten Digits using a Two-layer Perceptron
 
-INTRO HERE
+The purpose of the code located in this repo is to train a pretty simple neural network (two-layer perceptron) to recognize the handwritten numbers. The pology of the network is shown on the following picture ![Topology](Tow-layer-Perceptron.png).
 
 ## MNIST Dataset
 
