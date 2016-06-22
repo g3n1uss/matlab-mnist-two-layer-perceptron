@@ -85,6 +85,9 @@ function [hiddenWeights, outputWeights, ...
         % Normalize error, the output is percentage
         error = error/batchSize*100;
         % Add labels
-        plot(t, error,'*');
+        plot(t, error,'*')
+        ylabel('Error, %')
+        xlabel('Number of epochs')
+        title('Error rate')
     end;
 end
