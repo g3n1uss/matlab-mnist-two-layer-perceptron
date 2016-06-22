@@ -3,8 +3,8 @@
 ## *Disclaimer: I forked this project just to have an easily-accessible, clear and well-commented code showing the basic ideas underlying neural networks.*
 
 Recognizing the handwritten digits is one of the standard problems that can be easily solved with neural networks. 
-![HandwrittenDigits](handwritten_digits.jpg)
-The code in this repo is just an implementation of a pretty simple neural network (two-layer perceptron) that can recognize handwritten digits. As a dataset we use the [MNIST](http://yann.lecun.com/exdb/mnist/). The topology of the network is shown on the following picture. We have an input layer, one hidden layer and the output layer. All the neurons' weights are stored in arrays. ![Topology](Tow-layer-Perceptron.png)
+![HandwrittenDigits](pictures/handwritten_digits.jpg)
+The code in this repo is just an implementation of a pretty simple neural network (two-layer perceptron) that can recognize handwritten digits. As a dataset we use the [MNIST](http://yann.lecun.com/exdb/mnist/). The topology of the network is shown on the following picture. We have an input layer, one hidden layer and the output layer. All the neurons' weights are stored in arrays. ![Topology](pictures/Tow-layer-Perceptron.png)
 
 ## MNIST Dataset
 
