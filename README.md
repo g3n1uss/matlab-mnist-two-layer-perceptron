@@ -19,6 +19,7 @@ The entrance point is the script `applyTwoLayerPerceptronMNIST.m`, which trains 
 2. the learning rate `learningRate`;
 3. the type of activation functions `activationFunction`, `dActivationFunction`;
 4. the batch size `batchSize` and the number of epoch `epoch`.
+
 All the parameters are assigned with some default values providing pretty good results (10% error).
 
 [The original repository](https://github.com/davidstutz/matlab-mnist-two-layer-perceptron) was forked, because, in my opinion, the performance check, choosing the data for training and several other aspects are debatable. Also the comments are not very clear. I will implement all the changes in this fork.
