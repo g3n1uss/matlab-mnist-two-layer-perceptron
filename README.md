@@ -14,7 +14,7 @@ The methods `loadMNISTImages` and `loadMNISTLaels` are used to load the MNIST da
 
 ## Usage
 
-The entrance point is the script `applyTwoLayerPerceptronMNIST.m`, which trains and evaluates the performance of a two-layer perceptron. There are several parameters located at the very beginning of this script. They include:
+The entrance point is the script `applyTwoLayerPerceptronMNIST.m`, which trains and evaluates the performance of a two-layer perceptron. All the external parameters are initialized at the very beginning of this script. They include:
 
 1. the number of hidden neurons `numberOfHiddenUnits`;
 2. the learning rate `learningRate`;
