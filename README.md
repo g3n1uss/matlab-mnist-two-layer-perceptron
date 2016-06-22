@@ -21,6 +21,6 @@ Script `applyTwoLayerPerceptronMNIST.m` trains and evaluates the performance of 
 ## TODO
 
 1. Minimize the number of files.
-2. Change the way of selecting input data. The current version might use the same data several times.
-3. Check validation procedure
-4. Optimize the default parameters
+2. Change the way of selecting input data for training. The current version might use the same sample several times.
+3. Check validation procedure.
+4. Optimize the default parameters.
