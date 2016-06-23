@@ -37,7 +37,7 @@ function [hiddenWeights, outputWeights, ...
     
     n = zeros(batchSize);
     
-    figure; hold on;
+    figure('outerposition',[0 0 800 600]); hold on;
     
     % IT SEEMS LIKE FOR EVERY EPOCH WE CHOOSE DATA RANDOMLY, CHANGE?
 
@@ -84,10 +84,12 @@ function [hiddenWeights, outputWeights, ...
         end;
         % Normalize error, the output is percentage
         error = error/batchSize*100;
-        % Add labels
+        % Plot the error rate
         plot(t, error,'*')
         ylabel('Error, %')
         xlabel('Number of epochs')
-        title('Error rate')
+        title(['Error rate of the two-layer perceptron with ', ...
+            num2str(numberOfHiddenUnits),' hidden units and the learning rate '...
+            , num2str(learningRate)])
     end;
 end

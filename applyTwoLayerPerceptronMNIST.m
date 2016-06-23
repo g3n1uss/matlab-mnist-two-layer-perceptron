@@ -6,7 +6,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Choose the number of hidden neurons:
-numberOfHiddenUnits = 700;
+numberOfHiddenUnits = 10;
+% Increasing the number of hidden neurons almost does not affect the performance
 
 % Choose the learning rate parameter
 learningRate = 0.1;
@@ -24,6 +25,8 @@ epochs = 500;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load and transform the data                 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+addpath(genpath('data'));
 
 % Load MNIST data for training, the input contains 60000 images, 28x28 
 % pixels each
@@ -52,7 +55,7 @@ fprintf('Learning rate: %d.\n', learningRate);
     dActivationFunction, numberOfHiddenUnits, inputData, targetData, ...
     epochs, batchSize, learningRate);
 
-% PRINT THE ERROR AFTER TRAINING
+fprintf('Error: %d%%.\n', error);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Validation of the two layer perceptron      %
