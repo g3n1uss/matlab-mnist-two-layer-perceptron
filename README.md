@@ -25,9 +25,23 @@ All the parameters are assigned with some default values providing pretty good r
 
 [The original repository](https://github.com/davidstutz/matlab-mnist-two-layer-perceptron) was forked, because, in my opinion, the performance check, choosing the data for training and several other aspects are debatable. Also the comments are not very clear. I will implement all the changes in this fork.
 
+## Some results
+
+It seems like the best default parameter values (for the logistic sigmoid activation function) are:
+
+1. the number of hidden neurons `numberOfHiddenUnits` - 10;
+2. the learning rate `learningRate` - 0.1;
+4. the number of epoch `epoch` - 200.
+
+Notice that increasing the learning rate speeds up the converging (on the following plots we demonstrate the learning rates 0.1 and 0.5), but slightly decreases the eventual error rate (5% and 7% respectively). Also increasing the number of hidden unites over 10 does not seem to have a noticeable effect on the performance. As an illustration we provide a plot of the error rate for 100 hidden units.
+
+![Hid10Learn01](pictures/Hid10Learn01.jpg)
+![Hid10Learn05](pictures/Hid10Learn05.jpg)
+![Hid100Learn01](pictures/Hid100Learn01.jpg)
+
 ## TODO
 
 1. ~~Minimize the number of files.~~
 2. Change the way of selecting input data for training. The current version might use the same sample several times.
 3. Check validation procedure.
-4. Optimize the default parameters.
+4. ~~Optimize the default parameters.~~
