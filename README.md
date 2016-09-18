@@ -1,6 +1,7 @@
 # Recognizing Handwritten Digits using a Two-layer Perceptron
 
-## *Disclaimer: I forked this project just to have an easily-accessible, clear and well-commented code showing the basic ideas underlying neural networks.*
+## *Disclaimer* 
+I forked this project just to have an easily-accessible, clear and well-commented code showing the basic ideas underlying neural networks. The original code was rewritten, reorganized, well-commented to turn this project into a compact and comfortable sandbox to play with simple, but covering essentials, neural networks.
 
 Recognizing the handwritten digits is one of the standard problems that can be easily solved with neural networks. 
 ![HandwrittenDigits](pictures/handwritten_digits.jpg)
