@@ -37,7 +37,7 @@ function [hiddenWeights, outputWeights, ...
     
     n = zeros(batchSize);
     
-    figure('outerposition',[0 0 800 600]); hold on;
+    figure('outerposition',[0 0 1024 600]); hold on;
     
     % IT SEEMS LIKE FOR EVERY EPOCH WE CHOOSE DATA RANDOMLY, CHANGE?
 
