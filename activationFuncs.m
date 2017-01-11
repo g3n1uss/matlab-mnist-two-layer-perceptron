@@ -26,18 +26,18 @@ end
 
 % Derivative of the activation function
 function y=dActivationFunc(x)
-y = activationFunc(x).*(1 - activationFunc(x));
+ y = activationFunc(x).*(1 - activationFunc(x));
 
 % relu
-% [len,~]=size(x);
-% y=zeros(len, 1);
-% for i=1:len
-%     if x(i,1)<0
-%         y(i,1)=0;
-%     else
-%         y(i,1)=1;
-%     end
-% end
+%  [len,~]=size(x);
+%  y=zeros(len, 1);
+%  for i=1:len
+%      if x(i,1)<=0
+%          y(i,1)=0;
+%      else
+%          y(i,1)=1;
+%      end
+%  end
 
 % softsign
 %y=1./(1+abs(x.^2));

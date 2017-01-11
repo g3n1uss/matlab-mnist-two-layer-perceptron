@@ -29,8 +29,10 @@ function [hiddenWeights, outputWeights, ...
     outputDimensions = size(targetValues, 1);
     
     % Initialize the weights for the hidden layer and the output layer.
-    hiddenWeights = rand(numberOfHiddenUnits, inputDimensions);
-    outputWeights = rand(outputDimensions, numberOfHiddenUnits);
+    % Sigmoid + If we initialize weight by random values in range [-1, 1] the error
+    % is 10%, if in range [0,1] - 4%
+    hiddenWeights = -1 + rand(numberOfHiddenUnits, inputDimensions);
+    outputWeights = -1 + rand(outputDimensions, numberOfHiddenUnits);
     
     hiddenWeights = hiddenWeights./size(hiddenWeights, 2);
     outputWeights = outputWeights./size(outputWeights, 2);
@@ -39,7 +41,9 @@ function [hiddenWeights, outputWeights, ...
     
     figure('outerposition',[0 0 1024 600]); hold on;
     
-    % IT SEEMS LIKE FOR EVERY EPOCH WE CHOOSE DATA RANDOMLY, CHANGE?
+    % IT SEEMS LIKE FOR EVERY EPOCH WE CHOOSE DATA RANDOMLY, CHANGE? - No
+    % This is called stochastic training, in batch training we train on
+    % batches
 
     for t = 1: epochs
         % Within each epoch choose 100 batches randomly
