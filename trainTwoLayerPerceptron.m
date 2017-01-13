@@ -29,10 +29,11 @@ function [hiddenWeights, outputWeights, ...
     outputDimensions = size(targetValues, 1);
     
     % Initialize the weights for the hidden layer and the output layer.
-    % Sigmoid + If we initialize weight by random values in range [-1, 1] the error
-    % is 10%, if in range [0,1] - 4%
-    hiddenWeights = -1 + rand(numberOfHiddenUnits, inputDimensions);
-    outputWeights = -1 + rand(outputDimensions, numberOfHiddenUnits);
+    % only sigmoid activation function gives the converging picture if we
+    % initialize weights as in range [0,1]. Othe functions require weights
+    % in range [-1,1]
+    hiddenWeights = 2*(-1/2 + rand(numberOfHiddenUnits, inputDimensions));
+    outputWeights = 2*(-1/2 +rand(outputDimensions, numberOfHiddenUnits));
     
     hiddenWeights = hiddenWeights./size(hiddenWeights, 2);
     outputWeights = outputWeights./size(outputWeights, 2);

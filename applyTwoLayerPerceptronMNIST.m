@@ -10,7 +10,8 @@ numberOfHiddenUnits = 10;
 % Increasing the number of hidden neurons almost does not affect the performance
 
 % Choose the learning rate parameter
-learningRate = 0.1;
+learningRate = 0.01;
+% 0.1 work only for sigmoid, for other activation functions we need 0.01
 
 % Activation function and its derivative can be specified in 'activationFuncs.m'.
 actFuncs=activationFuncs;
@@ -20,7 +21,7 @@ dActivationFunction = actFuncs.dActivationFunc;
 % Choose the batch size and the number of epochs. Remember there are 
 % 60k input values
 batchSize = 100;
-epochs = 500;
+epochs = 1000;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Load and transform the data                 %
