@@ -61,6 +61,6 @@ It turns out that in order to use [other activation functions](https://en.wikipe
 ## TODO
 
 1. ~~Minimize the number of files.~~
-2. Change the way of selecting input data for training. The current version might use the same sample several times.
+2. ~~Change the way of selecting input data for training. The current version might use the same sample several times.~~
 3. Check validation procedure.
 4. ~~Optimize the default parameters.~~
