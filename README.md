@@ -30,17 +30,33 @@ All the parameters are assigned with some default values providing pretty good r
 
 ## Some results
 
-It seems like the best default parameter values (for the logistic sigmoid activation function) are:
+### Sigmoid
 
-1. the number of hidden neurons `numberOfHiddenUnits` - 10;
-2. the learning rate `learningRate` - 0.1;
-4. the number of epoch `epoch` - 200.
+It seems like the best values for parameters (for the logistic sigmoid activation function) are:
+
+1. weights are initialized with values in range [0, 1]; 
+2. the number of hidden neurons `numberOfHiddenUnits` - 10;
+3. the learning rate `learningRate` - 0.1;
+3. the number of epoch `epoch` - 200.
 
 Notice that increasing the learning rate speeds up the converging (on the following plots we demonstrate the learning rates 0.1 and 0.5), but slightly decreases the eventual error rate (5% and 7% respectively). Also increasing the number of hidden unites over 10 does not seem to have a noticeable effect on the performance. As an illustration we provide a plot of the error rate for 100 hidden units.
 
 ![Hid10Learn01](pictures/Hid10Learn01.jpg)
 ![Hid10Learn05](pictures/Hid10Learn05.jpg)
 ![Hid100Learn01](pictures/Hid100Learn01.jpg)
+
+### Other activation functions
+
+It turns out that in order to use [other activation functions](https://en.wikipedia.org/wiki/Activation_function) we need to initialize weights with values in range [-1,1] and choose the learning rate to be 0.01. Otherways the network is not converging. See below the results.
+
+![](pictures/Sigmoid.jpg)
+*Sigmoid activation function.*
+
+![](pictures/Sin.jpg)
+*Sin activation function.*
+
+![](pictures/relu.jpg)
+*ReLU activation function.*
 
 ## TODO
 
