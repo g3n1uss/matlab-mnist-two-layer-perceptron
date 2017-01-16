@@ -54,31 +54,41 @@ function [hiddenWeights, outputWeights, ...
             % matter? REWRITE?
             n(k) = floor(rand(1)*trainingSetSize + 1);
             
+            % ========================================================= %
             % Propagate the input vector through the network.
-            inputVector = inputValues(:, n(k));
-            hiddenActualInput = hiddenWeights*inputVector;
-            hiddenOutputVector = activationFunction(hiddenActualInput);
-            outputActualInput = outputWeights*hiddenOutputVector;
-            outputVector = activationFunction(outputActualInput);
+            % Input for in the hidden layer is just input
+            hiddenIn = inputValues(:, n(k));
+            % Output of the hidden layer
+            hiddenOut = hiddenWeights*hiddenIn;
+            % Now apply activation function, the result will be input for the
+            % output layer
+            outputIn = activationFunction(hiddenOut);
+            % Output of the hidden layer
+            outputOut = outputWeights*outputIn;
+            % Output of the network
+            outputVector = activationFunction(outputOut);
             
+            % Target data
             targetVector = targetValues(:, n(k));
             
+            % ========================================================= %
             % Backpropagate the errors.
-            outputDelta = dActivationFunction(outputActualInput).*(outputVector - targetVector);
-            hiddenDelta = dActivationFunction(hiddenActualInput).*(outputWeights'*outputDelta);
+            % Element wise multiplication, not matrix
+            outputDelta = dActivationFunction(outputOut).*(outputVector - targetVector);
+            hiddenDelta = dActivationFunction(hiddenOut).*(outputWeights'*outputDelta);
             
-            outputWeights = outputWeights - learningRate.*outputDelta*hiddenOutputVector';
-            hiddenWeights = hiddenWeights - learningRate.*hiddenDelta*inputVector';
+            outputWeights = outputWeights - learningRate.*outputDelta*outputIn';
+            hiddenWeights = hiddenWeights - learningRate.*hiddenDelta*hiddenIn';
         end;
         
         % Calculate the error for plotting.
         error = 0;
         for k = 1: batchSize
-            inputVector = inputValues(:, n(k));
+            hiddenIn = inputValues(:, n(k));
             targetVector = targetValues(:, n(k));
             % Prediction. The following vector is real-valued, but we need
             % to convert it into the binary output. 1 indicates the number
-            pred=activationFunction(outputWeights*activationFunction(hiddenWeights*inputVector));
+            pred=activationFunction(outputWeights*activationFunction(hiddenWeights*hiddenIn));
             % Convert to the binary vector
             [~,posMax]=max(pred);
             predInt=zeros(outputDimensions,1);
